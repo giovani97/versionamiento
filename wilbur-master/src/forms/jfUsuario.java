@@ -7,7 +7,7 @@ package forms;
  */
 /**
  *
- * @author user
+ * @author 
  */
 import Listas.listaUsuarios;
 import Nodos.NodoUsuario;
@@ -48,7 +48,11 @@ public class jfUsuario extends JFrame implements ActionListener {
         preguntas[1] = "¿Cual es el nombre de su madre?";
         preguntas[2] = "Nombre de su artista favorito";
         preguntas[3] = "Nombre de su mascota";
-
+        
+        /**
+         * Aqui inicial el diseño de los campos de la ventana
+         */
+        
         jlGDU = new JLabel("GESTIÓN DE USUARIOS");
         jlNombre = new JLabel("Nombre");
         jlCedula = new JLabel("Cedula");
