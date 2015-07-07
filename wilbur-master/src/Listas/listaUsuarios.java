@@ -17,7 +17,7 @@ import javax.swing.JOptionPane;
  */
 /**
  *
- * @author Giovani Murillo y Juan Pablo Serna
+ * @author user
  */
 public class listaUsuarios {
 
@@ -25,10 +25,6 @@ public class listaUsuarios {
     DataOutputStream salida = null;
     DataInputStream entrada = null;
 
- /**
-  * Metodo para crear el archivo en el que se encuentran los usuarios
-  * 
-  */
     public void ArchUsr() {
 
         NodoUsuario P = cabeza();
@@ -57,11 +53,32 @@ public class listaUsuarios {
         }
     }
 
-    /**
-     * 
-     * Meotodo paara agregar usuarios en la lista
-     * @param usr 
-     */
+    public void cargar() {
+        NodoUsuario N = new NodoUsuario();
+        N.setCedula("1026787455");
+        N.setNombre("David Castro");
+        N.setCorreo("DavidCastro@gmail.com");
+        N.setUsuario("David");
+        N.setContraseña("J4|<E.D06");
+        N.setPregunta(2);
+        N.setRespuesta("Slayer");
+        N.setRol("Administrador");
+        N.setEstado("Activo");
+        Agregar(N);
+        N = new NodoUsuario();
+        N.setCedula("1045678554");
+        N.setNombre("Juan Pablo Serna");
+        N.setCorreo("JuanSerna@gmail.com");
+        N.setUsuario("Juan");
+        N.setContraseña("juan123");
+        N.setPregunta(4);
+        N.setRespuesta("perro");
+        N.setRol("Empleado");
+        N.setEstado("Inactivo");
+        Agregar(N);
+
+    }
+
     public void Agregar(NodoUsuario usr) {
 
         if (cabeza == null) {
@@ -86,13 +103,6 @@ public class listaUsuarios {
         return cabeza;
     }
 
-    /**
-     * 
-     * Metodo para avisar si existe el usuario a ingresar
-     * @param Documento
-     * @param usr
-     * @return retorna si existe o no el usuario
-     */
     public boolean existe(String Documento, String usr) {
         if (cabeza == null) {
             return false;
@@ -114,13 +124,7 @@ public class listaUsuarios {
     
     
     }
-/**
- * 
- * Metodo para buscar el usuario en la lista
- * @param Documento
- * @param Usuario
- * @return retorna si existe o no el usuario que se busca
- */
+    //Busca un nodo usuario
     public NodoUsuario buscar(String Documento, String Usuario) {
         if (cabeza == null) {
             return null;
@@ -142,11 +146,6 @@ public class listaUsuarios {
     }
     
     
-    /**
-     * 
-     * Metodo para eliminar el usuario en la lista
-     * @param Documento 
-     */
 
     public void Eliminar(String Documento) {
         if (cabeza.getCedula().equals(Documento)) {
@@ -172,10 +171,7 @@ public class listaUsuarios {
 
         }
     }
-/**
- * Metodo para cargar el archivo donde están los usuarios
- * 
- */
+
     public void CargarArchivo() {
         try {
 
@@ -210,5 +206,4 @@ public class listaUsuarios {
         }
 
     }
-
 }

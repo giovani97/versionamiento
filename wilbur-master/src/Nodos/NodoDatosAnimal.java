@@ -7,12 +7,20 @@ package Nodos;
 
 /**
  *
- * @author Giovani Murillo y Juan Pablo Serna
+ * @author user
  */
 public class NodoDatosAnimal {
 
-    String IDAnimal, PesNa, Pesde, IDParto, Raza;
-    Boolean Sexo, Estado;
+    String Idanimal,
+            Sexo,
+            Estado,
+            Nacimiento,
+            Destete,
+            Fecha,
+            Codigo,
+            Edad,
+            Idmadre;
+    int Raza;
     NodoDatosAnimal Liga;
 
     public NodoDatosAnimal getLiga() {
@@ -23,86 +31,85 @@ public class NodoDatosAnimal {
         this.Liga = Liga;
     }
 
-    public void setID(String newID) {
-        this.IDAnimal = newID;
+    public String getIdanimal() {
+        return Idanimal;
     }
 
-    public void setPesNa(String newPesNa) {
-
-        this.PesNa = newPesNa;
-
+    public void setIdanimal(String Idanimal) {
+        this.Idanimal = Idanimal;
     }
 
-    public String getIDAnimal() {
-        
-        return IDAnimal;
-        
-    }
-
-    public void setIDAnimal(String IDAnimal) {
-    
-        this.IDAnimal = IDAnimal;
-    
-    }
-
-    public String getPesde() {
-        
-        return Pesde;
-    
-    }
-
-    public void setPesde(String Pesde) {
-    
-        this.Pesde = Pesde;
-    
-    }
-
-    public String getIDParto() {
-    
-        return IDParto;
-    
-    }
-
-    public void setIDParto(String IDParto) {
-    
-        this.IDParto = IDParto;
-    
-    }
-
-    public String getRaza() {
-    
-        return Raza;
-    
-    }
-
-    public void setRaza(String Raza) {
-    
-        this.Raza = Raza;
-    
-    }
-
-    public Boolean isSexo() {
-    
+    public String getSexo() {
         return Sexo;
-    
     }
 
-    public void setSexo(Boolean Sexo) {
-    
+    public void setSexo(String Sexo) {
         this.Sexo = Sexo;
-    
     }
 
-    public Boolean isEstado() {
-    
+    public String getEstado() {
         return Estado;
-    
     }
 
-    public void setEstado(Boolean Estado) {
-    
+    public void setEstado(String Estado) {
         this.Estado = Estado;
-    
     }
+
+    public String getNacimiento() {
+        return Nacimiento;
+    }
+
+    public void setNacimiento(String Nacimiento) {
+        this.Nacimiento = Nacimiento;
+    }
+
+    public String getDestete() {
+        return Destete;
+    }
+
+    public void setDestete(String Destete) {
+        this.Destete = Destete;
+    }
+
+    public String getIdmadre() {
+        return Idmadre;
+    }
+
+    public void setIdmadre(String Idmadre) {
+        this.Idmadre = Idmadre;
+    }
+
+    public String getFecha() {
+        return Fecha;
+    }
+
+    public void setFecha(String Fecha) {
+        this.Fecha = Fecha;
+    }
+
+    public String getEdad() {
+        return Edad;
+    }
+
+    public void setEdad(String Edad) {
+        this.Edad = Edad;
+    }
+
+    public int getRaza() {
+        return Raza;
+    }
+
+    public void setRaza(int Raza) {
+        this.Raza = Raza;
+    }
+    
+    public String getCodigo() {
+        return Codigo;
+    }
+
+    public void setCodigo(String Codigo) {
+        this.Codigo = Codigo;
+    }
+
 
 }

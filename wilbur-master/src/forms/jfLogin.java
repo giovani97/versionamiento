@@ -3,21 +3,10 @@ package forms;
 import Listas.listaUsuarios;
 import MenuPrincipal.MenuPrincipal;
 import Nodos.NodoUsuario;
-import java.awt.Font;
-import java.awt.Image;
-import java.awt.Menu;
-import java.awt.Toolkit;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.net.URL;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JPasswordField;
-import javax.swing.JTextField;
-import javax.swing.text.JTextComponent;
+import javax.swing.*;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -26,9 +15,22 @@ import javax.swing.text.JTextComponent;
  */
 /**
  *
- * @author Juan Pablo Serna Alzate, Giovani Murillo
+ * @author user
  */
 public class jfLogin extends JFrame implements ActionListener {
+    
+     private String clave;
+    
+    public void setClave(String clave) {
+        this.clave = clave;
+    }
+    
+      private String usuario;
+    
+    public void setusuario(String usuario) {
+        this.usuario = usuario;
+    }
+    
 
     JLabel jlUsuario, jlContraseña, jlImagen, jlAAS;
     JTextField jtUsuario;
@@ -37,10 +39,9 @@ public class jfLogin extends JFrame implements ActionListener {
     listaUsuarios lista = new listaUsuarios();
     ImageIcon imagen;
     listaUsuarios funcionesUsuario = new listaUsuarios();
-    Image icono;
-/**
- * Diseño de la ventana
- */
+    ImageIcon icono;
+    Image icon;
+
     public jfLogin() {
         jlUsuario = new JLabel("Usuario");
         jtUsuario = new JTextField();
@@ -49,31 +50,35 @@ public class jfLogin extends JFrame implements ActionListener {
         jbAceptar = new JButton("Aceptar");
         jbCancelar = new JButton("Cancelar");
         jlAAS = new JLabel("ACCESO AL SISTEMA");
-        setTitle("Acceso al sistema");
-
+        setTitle("Porcicola WILBUR");
+        
+        
+       
+       
         setResizable(false);
-
-        jlImagen = new JLabel(new ImageIcon(this.getClass()
-                               .getResource("/Imagenes/pig-01.png")));
+        
+        jlImagen = new JLabel( new ImageIcon(this.getClass().getResource("/Imagenes/cerdo.png")));
+        icon = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Imagenes/wilbur.png"));
+        
 
         Font fuente = new Font("Arial", 0, 12);
 
         jlAAS.setFont(new Font("Arial", 1, 14));
-        jlAAS.reshape(24, 20, 191, 22);
+        jlAAS.setBounds(24, 20, 191, 22);
 
         jlUsuario.setFont(fuente);
-        jlUsuario.reshape(225, 50, 100, 22);
+        jlUsuario.setBounds(225, 50, 100, 22);
 
-        jtUsuario.reshape(225, 75, 180, 22);
+        jtUsuario.setBounds(225, 75, 180, 22);
 
         jlContraseña.setFont(fuente);
-        jlContraseña.reshape(225, 105, 100, 22);
+        jlContraseña.setBounds(225, 105, 100, 22);
 
-        jpContraseña.reshape(225, 130, 180, 22);
+        jpContraseña.setBounds(225, 130, 180, 22);
 
-        jbCancelar.reshape(225, 172, 90, 22);
+        jbCancelar.setBounds(225, 185, 90, 22);
 
-        jbAceptar.reshape(125, 172, 90, 22);
+        jbAceptar.setBounds(125, 185, 90, 22);
 
         add(jlAAS);
         add(jlUsuario);
@@ -83,69 +88,83 @@ public class jfLogin extends JFrame implements ActionListener {
         add(jbCancelar);
         add(jbAceptar);
 
-        jlImagen.reshape(25, 40, 155, 155);
+//        jlImagen = new JLabel();
+//        URL RUTA = this.getClass().getResource("/PPI.png");
+//        ImageIcon ima = new ImageIcon(RUTA);
+//        jlImagen.setIcon(ima);
+        jlImagen.setBounds(15, 40, 155, 155);
 
         this.add(jlImagen);
+        setIconImage(icon);
         funcionesUsuario.CargarArchivo();
 
         setLayout(null);
-        resize(450, 263);
+        setSize(450, 263);
         setLocationRelativeTo(null);
         setVisible(true);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
+        
 
         jbAceptar.addActionListener(this);
         jbCancelar.addActionListener(this);
 
     }
+    
 
-    /**
-     * Validacion del login
-     *
-     * @param Accion
-     */
-    //Se valida si la persona no ha ingresado el nombre de usuario.
     public void actionPerformed(ActionEvent Accion) {
         if (Accion.getSource() == jbAceptar) {
-            String usuario = jtUsuario.getText(), constraseña = (String)
-                             jpContraseña.getText(), mensaje = "Debe digitar:\n";
-
+            String contrasena = new String (jpContraseña.getPassword());
+            String usuario = jtUsuario.getText(), constrasena, mensaje = "Debe digitar:\n";
             if (usuario.equals("")) {
 
                 mensaje = mensaje + "*un nombre de usuario\n";
+                jtUsuario.grabFocus();
 
             }
-            //Se valida si la persona  no ha ingresado la contraseña
-            if (constraseña.equals("")) {
+            if (contrasena.equals("")) {
+
                 mensaje = mensaje + "*una contraseña";
+                jpContraseña.grabFocus();
 
             }
             if (!(mensaje.equals("Debe digitar:\n"))) {
-                JOptionPane.showMessageDialog(null, mensaje, "Error", 1);
+                JOptionPane.showMessageDialog(null, mensaje, "Error", 1); 
                 return;
             }
             NodoUsuario P = funcionesUsuario.buscar("", usuario);
-            //Se valida que el usuario exista.
             if (P == null) {
-                JOptionPane.showMessageDialog(null, "Usuario no existe",
-                        "Error", 1);
+                JOptionPane.showMessageDialog(null, "Usuario no existe", "Error", 1);
+                jtUsuario.setText("");
+                jpContraseña.setText("");
+                jtUsuario.grabFocus();
                 return;
             }
-            //Se valida que el usuario y contraseña sean correctos
-            if (!(P.getContraseña().equalsIgnoreCase(constraseña))) {
-                JOptionPane.showMessageDialog(null, "Usuario o constraseña incorrectos",
-                        "Error", 1);
+            if (!(P.getContraseña().equalsIgnoreCase(contrasena))) {
+                JOptionPane.showMessageDialog(null, "Usuario o constraseña incorrectos", "Error", 1);
+                jtUsuario.setText("");
+                jpContraseña.setText("");
+                jtUsuario.grabFocus();
                 return;
             }
-            MenuPrincipal menu = new MenuPrincipal();
-            //Se cierra la ventana de login 
-            this.dispose();
+            
+            String perfil = "Empleado";
+            if(P.getRol().equals(perfil)){
+                MenuPrincipal menu = new MenuPrincipal();
+                menu.setClave(new String(jpContraseña.getPassword()));
+                menu.setusuario(jtUsuario.getText());
+                menu.setTitle("Menu principal - Empleado");
+                this.dispose();
+            }else{
+                MenuPrincipal menu = new MenuPrincipal();
+                menu.setClave(new String(jpContraseña.getPassword()));
+                menu.setusuario(jtUsuario.getText());
+                this.dispose();
+            }
 
         }
-            //Se valida que al darle click en cancelar, se cierre la ventana
+
         if (Accion.getSource() == jbCancelar) {
-            int n = JOptionPane.showConfirmDialog(null,
-                    "¿Esta seguro que desea salir de la aplicación?");
+            int n = JOptionPane.showConfirmDialog(null, "¿Esta seguro que desea salir de la aplicación?");
             if (n == 0) {
                 dispose();
             }
@@ -153,6 +172,8 @@ public class jfLogin extends JFrame implements ActionListener {
         }
 
     }
+    
+  
 
     public static void main(String[] args) {
         new jfLogin();

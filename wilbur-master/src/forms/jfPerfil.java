@@ -25,9 +25,7 @@ public class jfPerfil extends JFrame implements ActionListener{
     JButton jbGuardar, jbNuevo, jbModificar,jbConsultar,jbEliminar;
     JTextField jtIdP,jtNombre;
     JRadioButton ayuda, reportes, empleado, administrador;
-/**
- * Diseño de la ventana perfil
- */    
+    
     public jfPerfil(){
         
         Font fuente = new Font("Arial", 0, 12);
@@ -54,14 +52,14 @@ public class jfPerfil extends JFrame implements ActionListener{
         jtIdP = new JTextField();
         jtNombre = new JTextField();
         
-        GDP.reshape(216, 36, 211, 22);
+        GDP.setBounds(216, 36, 211, 22);
         add(GDP);
         
         
         setLayout(null);
         setVisible(true);
         setResizable(false);
-        resize(650,650);
+        setSize(650,650);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setLocationRelativeTo(null);
         

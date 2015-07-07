@@ -19,15 +19,12 @@ import javax.swing.border.*;
 public class jfAcerca extends JFrame implements ActionListener {
 
     JLabel jlAcerca, jlNombre1, jlNombre2, jlNombre3, jlCorreo1, jlCorreo2, jlCorreo3,jlNombres, jlCorreos;
+    Image icon;
 
-    
-    /**
-     * Diseño de la ventana del acerca de
-     */
     public jfAcerca() {
         setTitle("Acerca de");
         
-        
+        icon = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Imagenes/wilbur.png"));
         
         jlAcerca = new JLabel("ACERCA DE");
         jlNombre1 = new JLabel("Giovani Murillo");
@@ -49,24 +46,26 @@ public class jfAcerca extends JFrame implements ActionListener {
         add(jlNombre2);
         add(jlNombre3);
         add(jlNombres);
+       
         
-        jlNombre1.reshape(90, 150, 200, 30);
-        jlNombres.reshape(75, 100, 200, 30);
-        jlNombre2.reshape(90, 170, 200, 30);
-        jlNombre3.reshape(90, 190, 200, 30);
-        jlCorreos.reshape(75, 240, 200, 30);
-        jlCorreo1.reshape(90, 280, 200, 30);
-        jlCorreo2.reshape(90, 300, 230, 30);
-        jlCorreo3.reshape(90, 320, 200, 30);
+        jlNombre1.setBounds(90, 150, 200, 30);
+        jlNombres.setBounds(75, 100, 200, 30);
+        jlNombre2.setBounds(90, 170, 200, 30);
+        jlNombre3.setBounds(90, 190, 200, 30);
+        jlCorreos.setBounds(75, 240, 200, 30);
+        jlCorreo1.setBounds(90, 280, 200, 30);
+        jlCorreo2.setBounds(90, 300, 230, 30);
+        jlCorreo3.setBounds(90, 320, 200, 30);
         
 
         
         this.add(jlAcerca);
-        this.resize(650, 650);
+        this.setSize(650, 650);
         this.setLayout(null);
         this.setLocationRelativeTo(null);
-        this.show();
+        this.setVisible(true);
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        this.setIconImage(icon);
         jlCorreo1.setFont(fuente);
         jlCorreo2.setFont(fuente);
         jlCorreo3.setFont(fuente);
@@ -75,7 +74,7 @@ public class jfAcerca extends JFrame implements ActionListener {
         jlNombre3.setFont(fuente);
         jlCorreos.setFont(new Font("Arial", 1, 14));
         jlNombres.setFont(new Font("Arial", 1, 14));
-        jlAcerca.reshape(216, 36, 211, 22);
+        jlAcerca.setBounds(216, 36, 211, 22);
         
         
         

@@ -5,7 +5,7 @@
  */
 package forms;
 
-import Listas.listaUsuarios;
+import Listas.ListaDatosAnimal;
 import javax.swing.*;
 import java.awt.*;
 import javax.swing.table.DefaultTableModel;
@@ -14,29 +14,35 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author user
  */
-public class listarUsuario extends JFrame {
+public class listarAnimales1 extends JFrame {
 
     JTable Tabla = new JTable();
     DefaultTableModel ModeloTabla;
     JScrollPane Scroll = new JScrollPane();
     Image icon;
 
-    public listarUsuario() {
+    public listarAnimales1() {
         
         icon = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Imagenes/wilbur.png"));
         
-        Listas.listaUsuarios lista = new listaUsuarios();
+        Listas.ListaDatosAnimal lista = new ListaDatosAnimal();
         
-        Nodos.NodoUsuario P = lista.cabeza();
-        String filas[] = new String[5];
-        String prFila[] = new String[]{"Usuario", "Nombre", "Correo", "Cedula","Perfil"};
+        Nodos.NodoDatosAnimal P = lista.cabeza();
+        String filas[] = new String[10];
+        String prFila[] = new String[]{"Codigo Animal", "Raza", "Sexo", "Estado","Nacimiento", "Destete",
+            "Codigo Parto", "Codigo Madre","Fecha de parto","Edad"};
         ModeloTabla = new DefaultTableModel(null, prFila);
         while (P != null) {
-            filas[0] = P.getUsuario();
-            filas[1] = P.getNombre();
-            filas[2] = P.getCorreo();
-            filas[3] = P.getCedula();
-            filas[4] = P.getRol();
+            filas[0] = P.getIdanimal();
+            filas[1] = "" + P.getRaza();
+            filas[2] = P.getSexo();
+            filas[3] = P.getEstado();
+            filas[4] = P.getNacimiento();
+            filas[5] = P.getDestete();
+            filas[6] = P.getCodigo();
+            filas[7] = P.getIdmadre();
+            filas[8] = P.getFecha();
+            filas[9] = P.getEdad();
             
             ModeloTabla.addRow(filas);
             P = P.getLiga();
@@ -56,7 +62,7 @@ public class listarUsuario extends JFrame {
     }
 
     public static void main(String[] args) {
-        new listarUsuario();
+        new listarAnimales1();
     }
 
 }

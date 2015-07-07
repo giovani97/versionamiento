@@ -6,23 +6,20 @@
 package Reportes;
 
 import Listas.listaUsuarios;
-import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.FontFactory;
 import com.itextpdf.text.PageSize;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.Phrase;
-import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
-import java.awt.Font;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 
 /**
- * Metodo para realizar el reporte de los usuarios
- * @author Giovani Murillo y Juan Pablo Serna
+ *
+ * @author user
  */
 public class Reporte_Usuario {
 

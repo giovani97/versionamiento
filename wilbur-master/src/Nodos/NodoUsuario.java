@@ -6,11 +6,10 @@ package Nodos;
  * and open the template in the editor.
  */
 /**
- *Metodo para Crear el nodo usuario
- * @author Juan Pablo Serna y Giovani Murillo 
+ *
+ * @author user
  */
 public class NodoUsuario {
-
     String Nombre,
             Cedula,
             Correo,
@@ -18,7 +17,8 @@ public class NodoUsuario {
             Contraseña,
             Respuesta,
             Estado,
-            Rol;
+            Rol,
+            clave;
     int Pregunta;
     NodoUsuario Liga;
 
@@ -101,5 +101,11 @@ public class NodoUsuario {
     public void setPregunta(int Pregunta) {
         this.Pregunta = Pregunta;
     }
+
+    public void setClave(String clave) {
+        this.clave = clave;
+    }
+
+    
 
 }
